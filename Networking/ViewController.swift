@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: userData, options: []) else { return }
         request.httpBody = httpBody
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
