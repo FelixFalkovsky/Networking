@@ -9,36 +9,47 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var getImageButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        activityIndicator.isHidden = true
-        activityIndicator.hidesWhenStopped = false
-    }
-
-    @IBAction func getImagePressed(_ sender: Any) {
-        
-        label.isHidden = true
-        getImageButton.isEnabled = false
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        
-        guard let url = URL(string: "https://i.imgur.com/yCDnSnB.jpg") else { return }
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, error) in
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.imageView.image = image
-                }
-            }
+    @IBAction func getRequest(_ sender: Any) {
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+        let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let response = response,
+                let data = data
+            else { return }
+            print(response)
+            print(data)
             
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
+            } catch {
+                print(error)
+            }
         }.resume()
     }
     
+    @IBAction func postRequest(_ sender: Any) {
+        
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+        let userData = ["Course": "Networking", "Leeson": "GET and POST Request"]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: userData, options: []) else { return }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            guard let response = response, let data = data else { return }
+            print(response)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
 }
-
