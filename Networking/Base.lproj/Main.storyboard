@@ -31,6 +31,9 @@
                                     <action selector="getImagePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wk5-hu-Y03"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dO2-Wl-qE2">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -39,17 +42,20 @@
                             <constraint firstItem="Jva-JO-9Lq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ALH-qh-sHU"/>
                             <constraint firstItem="Jva-JO-9Lq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AoY-Gf-Z9x"/>
                             <constraint firstItem="pet-3N-MPm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CCF-Ci-uLn"/>
+                            <constraint firstItem="dO2-Wl-qE2" firstAttribute="centerX" secondItem="HOh-YI-lzk" secondAttribute="centerX" id="Da4-Nd-8b3"/>
                             <constraint firstItem="pet-3N-MPm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GKD-5h-gBx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pet-3N-MPm" secondAttribute="trailing" constant="20" id="IpM-Os-iwT"/>
                             <constraint firstItem="HOh-YI-lzk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h2a-Sg-ycc"/>
                             <constraint firstItem="pet-3N-MPm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="khY-qE-QSn"/>
                             <constraint firstItem="Jva-JO-9Lq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pwe-na-ORH"/>
+                            <constraint firstItem="dO2-Wl-qE2" firstAttribute="centerY" secondItem="HOh-YI-lzk" secondAttribute="centerY" id="reO-rg-Hpg"/>
                             <constraint firstAttribute="bottom" secondItem="HOh-YI-lzk" secondAttribute="bottom" id="vYx-Yt-23a"/>
                             <constraint firstItem="HOh-YI-lzk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vxr-CQ-eeK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jva-JO-9Lq" secondAttribute="trailing" constant="20" id="xcJ-lK-hWK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="dO2-Wl-qE2" id="4Ye-tM-WeZ"/>
                         <outlet property="getImageButton" destination="Jva-JO-9Lq" id="DUL-0N-Kwi"/>
                         <outlet property="imageView" destination="HOh-YI-lzk" id="gBH-IX-169"/>
                         <outlet property="label" destination="pet-3N-MPm" id="bVg-XQ-zFb"/>
