@@ -9,6 +9,8 @@ import UIKit
 
 class ImageViewController: UIViewController {
 
+    private let url = "https://i.imgur.com/yCDnSnB.jpg"
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -23,16 +25,9 @@ class ImageViewController: UIViewController {
         
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        
-        guard let url = URL(string: "https://i.imgur.com/yCDnSnB.jpg") else { return }
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, error) in
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.imageView.image = image
-                }
-            }
-        }.resume()
+        NetworkManager.downloadImage(url: url) { (image) in
+            self.activityIndicator.stopAnimating()
+            self.imageView.image = image
+        }
     }
 }
