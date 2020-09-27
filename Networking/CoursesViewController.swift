@@ -10,6 +10,8 @@ import UIKit
 class CoursesViewController: UIViewController {
     
     private var courses = [Course]()
+    private var courseName: String?
+    private var courseURL: String?
     
     @IBOutlet var tabView: UITableViewCell!
     
@@ -28,7 +30,9 @@ class CoursesViewController: UIViewController {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             do {
-                self.courses = try JSONDecoder().decode([Course].self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                self.courses = try decoder.decode([Course].self, from: data)
                 DispatchQueue.main.async {
                     self.tabView.reloadInputViews()
                 }
@@ -58,6 +62,15 @@ class CoursesViewController: UIViewController {
             }
         }
     }
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let webViewController = segue.destination as! WebViewController
+        webViewController.selectedCourse = courseName
+        if let url = courseURL {
+            webViewController.courseURL = url
+            
+        }
+    }
 }
 
 // MARK: Table View Data Source
@@ -77,12 +90,22 @@ extension CoursesViewController: UITableViewDataSource {
     }
 }
 
+ 
+
 // MARK: Table View Delegate
 
 extension CoursesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let course = courses[indexPath.row]
+        courseURL = course.link
+        courseName = course.name
+        
+        performSegue(withIdentifier: "Description", sender: self)
     }
 }
 
