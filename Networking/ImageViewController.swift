@@ -33,8 +33,6 @@ class ImageViewController: UIViewController {
                     self.imageView.image = image
                 }
             }
-            
         }.resume()
     }
-    
 }
