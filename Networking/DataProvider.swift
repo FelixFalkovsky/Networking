@@ -16,7 +16,9 @@ class DataProvider: NSObject {
     private lazy var bgSession: URLSession = {
         
         let config = URLSessionConfiguration.background(withIdentifier: "com.Felix.Networking")
-        config.isDiscretionary = true
+        config.isDiscretionary = true // Запуск задачи в оптимальное время ( по умолчанию false)
+        config.timeoutIntervalForResource = 300 // Время ожидания сети в секундах
+        config.waitsForConnectivity = true // Ожидание подключения к сети ( по умолчанию true)
         config.sessionSendsLaunchEvents = true
         return URLSession(configuration: config, delegate: self, delegateQueue: nil)
     }()
@@ -36,7 +38,13 @@ class DataProvider: NSObject {
     }
 
 }
-
+extension DataProvider: URLSessionTaskDelegate {
+    
+    // Востоновление соединения
+    func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask) {
+        // Ожидание соединения б обновление интерфейса и прочее
+    }
+}
 extension DataProvider: URLSessionDelegate {
     func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
         DispatchQueue.main.async {

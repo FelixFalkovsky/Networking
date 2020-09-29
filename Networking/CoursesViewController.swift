@@ -16,10 +16,14 @@ class CoursesViewController: UIViewController {
     
     @IBOutlet var tabView: UITableViewCell!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        fetchData()
-        
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        fetchData()
+//
+//    }
+    
+    func fetchDataWithAlamofire() {
+        AlamofireNetworkRequest.sendRequest(url: url)
     }
     
     func fetchData() {
@@ -55,6 +59,7 @@ class CoursesViewController: UIViewController {
             }
         }
     }
+    
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let webViewController = segue.destination as! WebViewController
@@ -67,7 +72,6 @@ class CoursesViewController: UIViewController {
 }
 
 // MARK: Table View Data Source
-
 extension CoursesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,10 +87,7 @@ extension CoursesViewController: UITableViewDataSource {
     }
 }
 
- 
-
 // MARK: Table View Delegate
-
 extension CoursesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
