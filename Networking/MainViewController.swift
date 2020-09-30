@@ -106,7 +106,7 @@ class MainViewController: UICollectionViewController {
             NetworkManager.postRequest(url: url)
         case .ourCurses:
             performSegue(withIdentifier: "Our Courses", sender: self)
-            print("Our Courses")
+            print(action.rawValue)
         case .uploadImage:
             NetworkManager.uploadImage(url: uploadImage)
         case .downloadFile:
@@ -114,7 +114,7 @@ class MainViewController: UICollectionViewController {
             dataProvider.startDownload()
             print(action.rawValue)
         case .ourCoursesAlamofire:
-            performSegue(withIdentifier: "OurCoursesWithAlomofire", sender: self)
+            performSegue(withIdentifier: "Our Courses (Alamofire)", sender: self)
             print(action.rawValue)
         }
     }
@@ -126,9 +126,9 @@ class MainViewController: UICollectionViewController {
         case "Our Courses":
             coursesVC?.fetchData()
             print("Our Courses")
-        case "OurCoursesWithAlomofire":
+        case "Our Courses (Alamofire)":
+            print("Our Courses With Alomofire")
             coursesVC?.fetchDataWithAlamofire()
-            print("OurCoursesWithAlomofire")
         default:
             break
         }

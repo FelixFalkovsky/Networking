@@ -106,7 +106,7 @@
                     <connections>
                         <segue destination="Wih-xR-hAU" kind="show" identifier="ShowImage" id="DBB-fQ-04W"/>
                         <segue destination="iSY-Kf-nfy" kind="show" identifier="Our Courses" id="kYM-0f-NNt"/>
-                        <segue destination="iSY-Kf-nfy" kind="show" identifier="OurCoursesWithAlomofire" id="f77-My-b6W"/>
+                        <segue destination="iSY-Kf-nfy" kind="show" identifier="Our Courses (Alamofire)" id="f77-My-b6W"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="px3-qT-kzY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -207,7 +207,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Our Curses" id="zmf-Gb-eWF"/>
                     <connections>
-                        <outlet property="tabView" destination="cNE-ia-rg5" id="R2x-oz-T1J"/>
+                        <outlet property="tableView" destination="cNE-ia-rg5" id="R2x-oz-T1J"/>
                         <segue destination="Hfm-0b-O9X" kind="show" identifier="Description" id="iHO-Qf-gFc"/>
                     </connections>
                 </viewController>
