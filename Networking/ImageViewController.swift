@@ -26,7 +26,7 @@ class ImageViewController: UIViewController {
         AF.request(url).response { (responseData) in
             switch responseData.result {
             case .success(let data):
-                guard let image = UIImage(data: data!) else { return }
+                guard let image = UIImage(data: data!) else { return }  
                 self.activityIndicator.stopAnimating()
                 self.imageView.image = image
             case.failure(let error):

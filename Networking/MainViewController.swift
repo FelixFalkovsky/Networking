@@ -22,6 +22,7 @@ enum Actions: String, CaseIterable {
 private let reuseIdentifier = "Cell"
 private let url = "https://jsonplaceholder.typicode.com/posts"
 private let uploadImage = "https://api.imgur.com/3/image"
+private let mySwiftApi = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
 
 class MainViewController: UICollectionViewController {
     
@@ -119,6 +120,7 @@ class MainViewController: UICollectionViewController {
             print(action.rawValue)
         case .responseData:
             performSegue(withIdentifier: "Response Data", sender: self)
+            AlamofireNetworkRequest.responsData(url: mySwiftApi)
             print(action.rawValue)
         }
     }
