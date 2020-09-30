@@ -11,7 +11,7 @@ class NetworkManager {
     
     static func getRequest(url: String) {
         guard let url = URL(string: url) else { return }
-        let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let session: Void = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
                 let response = response,
                 let data = data

@@ -10,6 +10,10 @@ import Alamofire
 
 class AlamofireNetworkRequest {
     
+    static var onProgress: ((Double)->())?
+    static var complited: ((String)->())?
+    
+    //MARK: Send Request
     static func sendRequest(url: String, completion: @escaping (_ courses: [Course])->()) {
         guard let url = URL(string: url) else { return }
 
@@ -19,7 +23,7 @@ class AlamofireNetworkRequest {
             case .success(let value):
                print(value)
                 
-                guard let arrayOfItems = value as? Array<[String: Any]> else { return }
+               // guard let arrayOfItems = value as? Array<[String: Any]> else { return }
                 
                 var courses = [Course]()
                 
@@ -55,7 +59,7 @@ class AlamofireNetworkRequest {
 //            }
         }
     }
-    
+    //MARK: Response Data
     static func responsData(url: String) {
         AF.request(url).response { (responsData) in
             switch responsData.result {
@@ -64,6 +68,42 @@ class AlamofireNetworkRequest {
                 print(string)
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    //MARK: Response String
+    static func responseString(url: String) {
+        AF.request(url).response { (responseString) in
+            switch responseString.result {
+            case .success(let string):
+                print(string as Any)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    static func response(url: String) {
+        AF.request(url).response { (response) in
+            guard let data = response.data, let string = String(data: data, encoding: .utf8) else { return }
+            print(string)
+            
+        }
+    }
+    static func downloadImageWithProgress(url: String, completion: @escaping (_ image: UIImage) -> ()) {
+        guard let url = URL(string: url) else { return }
+        AF.request(url).validate().downloadProgress { (progress) in
+            print("***Start Downloads***")
+            print("TotalUnutCount:\n", progress.totalUnitCount)
+            print("Complited Unit Count:\n", progress.completedUnitCount)
+            print("Fraction Complited:\n", progress.fractionCompleted)
+            print("Localize Description:\n", progress.localizedDescription!)
+            print("*****************************************************")
+            self.onProgress?(progress.fractionCompleted)
+            self.complited?(progress.localizedDescription)
+        }.response { (response) in
+            guard let data = response.data, let image = UIImage(data: data) else { return }
+            DispatchQueue.main.async {
+                completion(image)
             }
         }
     }
