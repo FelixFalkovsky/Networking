@@ -16,6 +16,7 @@ enum Actions: String, CaseIterable {
     case uploadImage = "Upload Image"
     case downloadFile = "Download File"
     case ourCoursesAlamofire = "Our Courses (Alamofire)"
+    case responseData = "Response Data"
 }
 
 private let reuseIdentifier = "Cell"
@@ -116,12 +117,16 @@ class MainViewController: UICollectionViewController {
         case .ourCoursesAlamofire:
             performSegue(withIdentifier: "Our Courses (Alamofire)", sender: self)
             print(action.rawValue)
+        case .responseData:
+            performSegue(withIdentifier: "Response Data", sender: self)
+            print(action.rawValue)
         }
     }
     
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let coursesVC = segue.destination as? CoursesViewController
+        let imageVC = segue.destination as? ImageViewController
         switch segue.identifier {
         case "Our Courses":
             coursesVC?.fetchData()
@@ -129,6 +134,11 @@ class MainViewController: UICollectionViewController {
         case "Our Courses (Alamofire)":
             print("Our Courses With Alomofire")
             coursesVC?.fetchDataWithAlamofire()
+        case "ShowImage":
+            imageVC?.fetchImage()
+        case "Response Data":
+            imageVC?.fetchDataWithAlamofire()
+            print("Response Data")
         default:
             break
         }
