@@ -107,6 +107,7 @@ class AlamofireNetworkRequest {
             }
         }
     }
+    // Запрос на добавление поста // Alamofire
     static func postRequest(url: String, completion: @escaping (_ courses: [Course])->()) {
         guard let url = URL(string: url) else { return }
         let  userData: [String: Any] = [
@@ -117,6 +118,34 @@ class AlamofireNetworkRequest {
             "numberOfTest": 10
         ]
         AF.request(url, method: .post, parameters: userData).responseJSON { (responsJSON) in
+            guard let statusCode = responsJSON.response?.statusCode else { return }
+            print("status Code", statusCode)
+            
+            switch responsJSON.result {
+            case .success(let value):
+                guard let jsonObject = value as? [String: Any],
+                      let course = Course(json: jsonObject) else { return }
+                var courses = [Course]()
+                courses.append(course)
+                completion(courses)
+                print(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    // Запрос для put // Alamofire
+    // Запрос на добавление поста // Alamofire
+    static func putRequest(url: String, completion: @escaping (_ courses: [Course])->()) {
+        guard let url = URL(string: url) else { return }
+        let  userData: [String: Any] = [
+            "name": "Network Request with Alamofire",
+            "link": "https://swiftbook.ru/contents/our-first-applications/",
+            "imageUrl": "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png",
+            "numberOfLessons": "18",
+            "numberOfTest": "10"
+        ]
+        AF.request(url, method: .put, parameters: userData).responseJSON { (responsJSON) in
             guard let statusCode = responsJSON.response?.statusCode else { return }
             print("status Code", statusCode)
             

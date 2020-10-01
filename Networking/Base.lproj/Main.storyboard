@@ -132,6 +132,7 @@
                         <segue destination="Wih-xR-hAU" kind="show" identifier="Response Data" id="y4L-nU-kdk"/>
                         <segue destination="Wih-xR-hAU" kind="show" identifier="Download Large Image" id="eOE-JO-oxo"/>
                         <segue destination="iSY-Kf-nfy" kind="show" identifier="Post Alamofire" id="C6z-Mc-Zmt"/>
+                        <segue destination="iSY-Kf-nfy" kind="show" identifier="PutRequest" id="RhB-Ry-uG8"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="px3-qT-kzY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -302,7 +303,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="C6z-Mc-Zmt"/>
+        <segue reference="RhB-Ry-uG8"/>
         <segue reference="eOE-JO-oxo"/>
     </inferredMetricsTieBreakers>
     <resources>
