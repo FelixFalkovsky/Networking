@@ -115,7 +115,7 @@ class AlamofireNetworkRequest {
             "link": "https://swiftbook.ru/contents/our-first-applications/",
             "imageUrl": "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png",
             "numberOfLessons": 18,
-            "numberOfTest": 10
+            "numberOfTests": 10
         ]
         AF.request(url, method: .post, parameters: userData).responseJSON { (responsJSON) in
             guard let statusCode = responsJSON.response?.statusCode else { return }
@@ -143,7 +143,7 @@ class AlamofireNetworkRequest {
             "link": "https://swiftbook.ru/contents/our-first-applications/",
             "imageUrl": "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png",
             "numberOfLessons": "18",
-            "numberOfTest": "10"
+            "numberOfTests": "10"
         ]
         AF.request(url, method: .put, parameters: userData).responseJSON { (responsJSON) in
             guard let statusCode = responsJSON.response?.statusCode else { return }
@@ -161,5 +161,39 @@ class AlamofireNetworkRequest {
                 print(error)
             }
         }
+    }
+    //
+    static func uploadImage(url: String) {
+//        guard let url = URL(string: url) else { return }
+//        let image = UIImage(named: "github")!
+//        let data = image.pngData()!
+//
+//        let httpHeaders: HTTPHeaders = ["Authorization" : "Client-ID 124bdab951636cc"]
+//
+//        AF.upload(multipartFormData: { (multipadFormData) in
+//            multipadFormData.append(data, withName: "image") //  - данный метод не подходит при выгрузке видео контента !
+//        }, to: url, headers: httpHeaders) { (response) in
+//
+//            switch response {
+//            case .success(request: let uploadRequest,
+//                          streamingFromDisk: let streamingFromDisk,
+//                          streamFileURL: let streamFileURL):
+//            print(uploadRequest)
+//            print(streamingFromDisk)
+//            print(streamFileURL)
+//
+//                uploadRequest.validate().responseJSON(completionHandler: { (responseJSON) in
+//                    switch responseJSON.result {
+//                    case .success(let wow):
+//                        print(wow)
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                })
+//            case .failure(let error):
+//                print(error)
+//            }
+//
+//        }
     }
 }
