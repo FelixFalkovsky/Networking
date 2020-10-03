@@ -16,6 +16,7 @@
 		8898C4E325231B9E00A9998E /* AlamofireNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8898C4E225231B9E00A9998E /* AlamofireNetworkRequest.swift */; };
 		88B8BCDE25271D4C0025A4F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8BCDD25271D4C0025A4F5 /* LoginViewController.swift */; };
 		88B8BCE125271E640025A4F5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8BCE025271E640025A4F5 /* Extensions.swift */; };
+		88B8BCFD252852D70025A4F5 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8BCFC252852D60025A4F5 /* UserProfileVC.swift */; };
 		88B9905C251F1B4400933643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9905B251F1B4400933643 /* AppDelegate.swift */; };
 		88B9905E251F1B4400933643 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9905D251F1B4400933643 /* SceneDelegate.swift */; };
 		88B99060251F1B4400933643 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9905F251F1B4400933643 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		88B8BCD3252708D40025A4F5 /* Networking.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Networking.entitlements; sourceTree = "<group>"; };
 		88B8BCDD25271D4C0025A4F5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88B8BCE025271E640025A4F5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		88B8BCFC252852D60025A4F5 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		88B99058251F1B4400933643 /* Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B9905B251F1B4400933643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B9905D251F1B4400933643 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				88B9907F251F86DE00933643 /* CoursesViewController.swift */,
 				8898C4C72520769D00A9998E /* WebsiteDescription.swift */,
 				88B99061251F1B4400933643 /* Main.storyboard */,
+				88B8BCFC252852D60025A4F5 /* UserProfileVC.swift */,
 				88B8BCDD25271D4C0025A4F5 /* LoginViewController.swift */,
 				88B8BCE025271E640025A4F5 /* Extensions.swift */,
 				8898C4D32521B1D900A9998E /* ImageProperties.swift */,
@@ -254,6 +257,7 @@
 				88B99083251F9C4F00933643 /* Course.swift in Sources */,
 				88B99060251F1B4400933643 /* ViewController.swift in Sources */,
 				88B99080251F86DE00933643 /* CoursesViewController.swift in Sources */,
+				88B8BCFD252852D70025A4F5 /* UserProfileVC.swift in Sources */,
 				8898C4D42521B1D900A9998E /* ImageProperties.swift in Sources */,
 				8898C4E325231B9E00A9998E /* AlamofireNetworkRequest.swift in Sources */,
 				88B9905C251F1B4400933643 /* AppDelegate.swift in Sources */,
