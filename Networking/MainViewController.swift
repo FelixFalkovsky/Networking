@@ -8,6 +8,8 @@
 import UIKit
 import UserNotifications
 import FBSDKLoginKit
+import FirebaseAuth
+
 
 enum Actions: String, CaseIterable {
     case downloadImage = "Download Image"
@@ -201,7 +203,11 @@ extension MainViewController {
 //MARK: Facebook SDK
 extension MainViewController {
     private func checkLoggedIn() {
-        if AccessToken.isCurrentAccessTokenActive == false {
+        // для Facebook
+       // if AccessToken.isCurrentAccessTokenActive == false {
+        
+        // для Firebase проверка существования пользователя 
+        if Auth.auth().currentUser == nil {
             print("The user is logged in")
 
             DispatchQueue.main.async {

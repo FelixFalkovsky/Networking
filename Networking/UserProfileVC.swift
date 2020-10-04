@@ -7,6 +7,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import FirebaseAuth
 
 class UserProfileVC: UIViewController {
     
@@ -46,19 +47,37 @@ extension UserProfileVC: LoginButtonDelegate {
     }
     
     private func openLoginViewController() {
-        if AccessToken.isCurrentAccessTokenActive == false {
-            print("The user is logged in")
-
+        // FirebaseAuth
+        do {
+            try Auth.auth().signOut()
             DispatchQueue.main.async {
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                 self.present(loginViewController, animated: true)
                 return
             }
+        } catch let error {
+            print("*** Failed to sign out with error: \(error) ***")
         }
+        
+        // Facebook
+//        if AccessToken.isCurrentAccessTokenActive == false {
+//            print("The user is logged in")
+//
+//            DispatchQueue.main.async {
+//                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//                let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//                self.present(loginViewController, animated: true)
+//                return
+//            }
+//        }
     }
     
     private func openMainViewController() {
     dismiss(animated: true)
+    }
+    
+    private func fetchFacebookFields() {
+        
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884E7EAA2529A44A000BBFD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 884E7EA92529A449000BBFD7 /* GoogleService-Info.plist */; };
 		8898C4C82520769D00A9998E /* WebsiteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8898C4C72520769D00A9998E /* WebsiteDescription.swift */; };
 		8898C4CB2520AF6200A9998E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8898C4CA2520AF6200A9998E /* MainViewController.swift */; };
 		8898C4CE2520AF7B00A9998E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8898C4CD2520AF7B00A9998E /* CollectionViewCell.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		22BF4252348F939AEA47289E /* Pods-Networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking.debug.xcconfig"; path = "Target Support Files/Pods-Networking/Pods-Networking.debug.xcconfig"; sourceTree = "<group>"; };
 		453BA4C067C59994A49979AC /* Pods_Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		884E7EA92529A449000BBFD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8898C4C72520769D00A9998E /* WebsiteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDescription.swift; sourceTree = "<group>"; };
 		8898C4CA2520AF6200A9998E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8898C4CD2520AF7B00A9998E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				8898C4D02520EF2D00A9998E /* NetworkManager.swift */,
 				88B99064251F1B4700933643 /* Assets.xcassets */,
 				88B99066251F1B4700933643 /* LaunchScreen.storyboard */,
+				884E7EA92529A449000BBFD7 /* GoogleService-Info.plist */,
 				88B99069251F1B4700933643 /* Info.plist */,
 			);
 			path = Networking;
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B99068251F1B4700933643 /* LaunchScreen.storyboard in Resources */,
+				884E7EAA2529A44A000BBFD7 /* GoogleService-Info.plist in Resources */,
 				88B99065251F1B4700933643 /* Assets.xcassets in Resources */,
 				88B99063251F1B4400933643 /* Main.storyboard in Resources */,
 			);
